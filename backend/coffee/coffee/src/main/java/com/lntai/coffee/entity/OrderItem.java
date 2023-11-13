@@ -3,9 +3,8 @@ package com.lntai.coffee.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-
 @Entity
-@Table(name = "OrderItem")
+@Table(name = "\"ORDERITEM\"")
 @Data
 public class OrderItem {
     @Id
