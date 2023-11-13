@@ -6,16 +6,16 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Order") // Chú ý tên bảng đã được thay đổi thành "CoffeeOrder" để tránh trùng với từ khóa SQL "ORDER"
+@Table(name = "\"ORDER\"") // Bọc tên bảng trong dấu nháy ngược
 @Data
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private int orderId;
+    private Integer orderId;
 
     @Column(name = "table_id")
-    private int tableId;
+    private Integer tableId;
 
     private String status;
 
