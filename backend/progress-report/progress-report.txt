@@ -1,0 +1,3 @@
+tuần 1: Tạo cơ sở dữ liệu
+
+tuần 2: thêm dữ liệu
