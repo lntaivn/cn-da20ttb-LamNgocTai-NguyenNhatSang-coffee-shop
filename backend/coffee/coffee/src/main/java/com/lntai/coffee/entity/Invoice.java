@@ -1,21 +1,23 @@
 package com.lntai.coffee.entity;
 
+import jakarta.persistence.Table;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "\"ORDER\"") // Bọc tên bảng trong dấu nháy ngược
+@Table(name = "INVOICE") // Bọc tên bảng trong dấu nháy ngược
 @Data
-public class Order {
+public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Integer orderId;
 
-    @Column(name = "table_id")
-    private Integer tableId;
+    @ManyToOne
+    @JoinColumn(name = "table_id")
+    private TableOrder tableId;
 
     private String status;
 
@@ -27,5 +29,5 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private Employee employeeId;
 }
