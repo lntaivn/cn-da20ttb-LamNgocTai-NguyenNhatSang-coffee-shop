@@ -1,5 +1,6 @@
 package com.lntai.coffee.entity;
 
+import com.lntai.coffee.token.Token;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -37,6 +38,9 @@ public class Employee implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Token> tokens;
 
     @Column(name = "device_authentication")
     private String deviceAuthentication;
