@@ -1,5 +1,6 @@
 package com.lntai.coffee.auth;
 
+import com.lntai.coffee.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,6 @@ public class RegisterRequest {
 
     private String deviceAuthentication;
 
-
+    private Role role;
 
 }

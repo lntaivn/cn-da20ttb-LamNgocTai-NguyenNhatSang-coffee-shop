@@ -6,7 +6,6 @@ import com.lntai.coffee.auth.RegisterRequest;
 import com.lntai.coffee.dao.AuthenticationResponse;
 import com.lntai.coffee.dao.EmployeeRepository;
 import com.lntai.coffee.entity.Employee;
-import com.lntai.coffee.entity.Role;
 import com.lntai.coffee.token.Token;
 import com.lntai.coffee.token.TokenRepository;
 import com.lntai.coffee.token.TokenType;
@@ -36,7 +35,7 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .gender(Employee.Gender.MALE)
                 .born(request.getBorn())
-                .role(Role.USER)
+                .role(request.getRole())
                 .deviceAuthentication(request.getDeviceAuthentication())
                 .address(request.getAddress())
                 .build();
