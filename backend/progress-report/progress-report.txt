@@ -6,4 +6,4 @@ tuần 3: Security - JWT
 
 tuần 4: phân quyền
 
-tuần 5: Openapi doc, change password
+tuần 5: viết tài liệu, Openapi doc, change password
