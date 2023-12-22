@@ -1,4 +1,4 @@
-package com.lntai.coffee.auth;
+package com.lntai.coffee.request;
 
 import com.lntai.coffee.entity.Role;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.lntai.coffee.controller;
 
 import com.lntai.coffee.auth.AuthenticationRequest;
-import com.lntai.coffee.auth.RegisterRequest;
+import com.lntai.coffee.request.RegisterRequest;
 import com.lntai.coffee.dao.AuthenticationResponse;
 import com.lntai.coffee.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,7 +32,6 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequest request
     ){
         return ResponseEntity.ok(service.authenticate(request));
-
     }
 
     @PostMapping("/refresh-token")

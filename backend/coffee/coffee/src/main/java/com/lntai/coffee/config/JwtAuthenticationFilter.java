@@ -1,7 +1,7 @@
 package com.lntai.coffee.config;
 
 import com.lntai.coffee.service.JwtService;
-import com.lntai.coffee.token.TokenRepository;
+import com.lntai.coffee.dao.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

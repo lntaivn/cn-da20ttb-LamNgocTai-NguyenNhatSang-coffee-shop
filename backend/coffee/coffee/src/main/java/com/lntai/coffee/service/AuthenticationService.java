@@ -2,12 +2,12 @@ package com.lntai.coffee.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lntai.coffee.auth.AuthenticationRequest;
-import com.lntai.coffee.auth.RegisterRequest;
+import com.lntai.coffee.request.RegisterRequest;
 import com.lntai.coffee.dao.AuthenticationResponse;
 import com.lntai.coffee.dao.EmployeeRepository;
 import com.lntai.coffee.entity.Employee;
 import com.lntai.coffee.token.Token;
-import com.lntai.coffee.token.TokenRepository;
+import com.lntai.coffee.dao.TokenRepository;
 import com.lntai.coffee.token.TokenType;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -89,7 +89,15 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
+                .employeeId(employee.getEmployeeId())
+                .username(employee.getUsername())
+                .email(employee.getEmail())
+                .address(employee.getAddress())
+                .gender(employee.getGender())
+                .message("Đăng ký thành công")
+                .role(employee.getRole())
                 .build();
+
     }
 
     public void refreshToken(

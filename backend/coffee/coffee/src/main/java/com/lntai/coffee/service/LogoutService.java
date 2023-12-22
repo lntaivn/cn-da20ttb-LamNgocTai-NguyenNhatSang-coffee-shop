@@ -1,6 +1,6 @@
 package com.lntai.coffee.service;
 
-import com.lntai.coffee.token.TokenRepository;
+import com.lntai.coffee.dao.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

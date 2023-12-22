@@ -1,13 +1,12 @@
 package com.lntai.coffee.controller;
 
+import com.lntai.coffee.exception.EmployeeException;
 import com.lntai.coffee.request.ChangePasswordRequest;
 import com.lntai.coffee.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -25,5 +24,12 @@ public class EmployeeController {
     ) {
         service.changePassword(request, connectedUser);
         return ResponseEntity.ok().build();
+    }
+
+    @ExceptionHandler(EmployeeException.class)
+    public ResponseEntity<?> handleCustomException(EmployeeException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ex.getMessage());
     }
 }

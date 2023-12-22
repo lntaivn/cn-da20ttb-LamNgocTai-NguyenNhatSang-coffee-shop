@@ -1,6 +1,8 @@
 package com.lntai.coffee.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.lntai.coffee.entity.Employee;
+import com.lntai.coffee.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,5 +19,14 @@ public class AuthenticationResponse {
 
     @JsonProperty("refresh_token")
     private String refreshToken;
+
+    private String message;
+
+    private Integer employeeId;
+    private String username;
+    private String email;
+    private String address;
+    private Employee.Gender gender;
+    private Role role;
 }
 

@@ -2,6 +2,7 @@ package com.lntai.coffee.service;
 
 import com.lntai.coffee.dao.EmployeeRepository;
 import com.lntai.coffee.entity.Employee;
+import com.lntai.coffee.exception.EmployeeException;
 import com.lntai.coffee.request.ChangePasswordRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,11 +22,11 @@ public class EmployeeService {
 
         // kiem tra mat khau
         if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
-            throw new IllegalStateException("Wrong password");
+            throw new EmployeeException("Mật khẩu sai");
         }
         // kiem tra mat khau giong nhau
         if (!request.getNewPassword().equals(request.getConfirmationPassword())) {
-            throw new IllegalStateException("Password are not the same");
+            throw new EmployeeException("Mật khẩu không giống nhau");
         }
 
         // cap nhat

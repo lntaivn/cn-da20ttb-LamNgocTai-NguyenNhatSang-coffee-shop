@@ -14,13 +14,17 @@ public class Product {
     @Column(name = "product_id")
     private Integer productId;
 
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
 
+    @Column(name = "price", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
-    private String imageUrl; // Sử dụng kiểu dữ liệu String
+    @Column(name = "image_url", length = 255)  // VARCHAR(255) for image URL
+    private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private ProductCategory category_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProductCategory category;
+
 }
