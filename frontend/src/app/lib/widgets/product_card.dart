@@ -36,7 +36,7 @@ class ProductCard extends StatelessWidget {
                       image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                              'https://media.istockphoto.com/photos/cup-of-cafe-latte-with-coffee-beans-and-cinnamon-sticks-picture-id505168330?b=1&k=20&m=505168330&s=170667a&w=0&h=jJTePtpYZLR3M2OULX5yoARW7deTuAUlwpAoS4OriJg='))),
+                              'https://www.highlandscoffee.com.vn/vnt_upload/product/04_2023/New_product/HLC_New_logo_5.1_Products__LATTE_1.jpg'))),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 8.0, bottom: 4),
