@@ -1,17 +1,27 @@
+// import 'package:app/controllers/table_list_controller.dart';
+import 'package:app/controllers/table_list_controller.dart';
+import 'package:app/models/table_model.dart';
 import 'package:app/screens/order_details.dart';
-import 'package:app/screens/product_list.dart'; // Import màn hình bạn muốn chuyển đổi
+import 'package:app/screens/product_list.dart';
 import 'package:app/theme.dart';
 import 'package:flutter/material.dart';
 
-class TableList extends StatelessWidget {
+class TableList extends StatefulWidget {
   const TableList({super.key});
+
+  @override
+  State<TableList> createState() => _TableListState();
+}
+
+class _TableListState extends State<TableList> {
+  final TableListController _controller = TableListController();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Table Order'),
+          title: const Text('Table List'),
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -21,15 +31,15 @@ class TableList extends StatelessWidget {
           onTap: (int index) {
             switch (index) {
               case 0:
-                // Nhấn Home
+                // Nhấn Table
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TableList()));
+                    MaterialPageRoute(builder: (context) => const TableList()));
                 break;
 
               case 1:
                 // Nhấn Order
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TableList()));
+                    MaterialPageRoute(builder: (context) => const TableList()));
                 break;
 
               case 2:
@@ -41,32 +51,32 @@ class TableList extends StatelessWidget {
               case 3:
                 // Nhấn Profile
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TableList()));
+                    MaterialPageRoute(builder: (context) => const TableList()));
                 break;
             }
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.table_restaurant_outlined,
                 color: AppTheme.primaryColor,
               ),
               label: 'Table',
             ),
             BottomNavigationBarItem(
-                icon: const Icon(
+                icon: Icon(
                   Icons.checklist_rounded,
                   color: AppTheme.primaryColor,
                 ),
                 label: 'Order'),
             BottomNavigationBarItem(
-                icon: const Icon(
+                icon: Icon(
                   Icons.payment_rounded,
                   color: AppTheme.primaryColor,
                 ),
                 label: 'Payment'),
             BottomNavigationBarItem(
-                icon: const Icon(
+                icon: Icon(
                   Icons.person_2_outlined,
                   color: AppTheme.primaryColor,
                 ),
@@ -102,57 +112,78 @@ class TableList extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 3,
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                children: List.generate(12, (index) {
-                  return Center(
-                    child: GestureDetector(
-                        onTap: () {
-                          // Chuyển đổi sang màn hình ProductListScreen khi nhấn vào ô GridView
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ProductList(),
+              child: FutureBuilder<List<TableModel>>(
+                future: _controller.getTables(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    // Hiển thị bộ quay vòng khi đang tải dữ liệu
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    // Hiển thị thông báo lỗi nếu có
+                    return Center(child: Text("Error: ${snapshot.error}"));
+                  } else if (snapshot.hasData) {
+                    // Lấy dữ liệu từ snapshot
+                    List<TableModel> tables = snapshot.data!;
+                    return GridView.count(
+                      crossAxisCount: 3,
+                      padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                      children: List.generate(tables.length, (index) {
+                        // Lấy thông tin của từng bàn
+                        TableModel table = tables[index];
+                        return Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              // Hành động khi nhấn vào ô GridView (ví dụ chuyển sang màn hình ProductList)
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ProductList(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 90.0,
+                              height: 90.0,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    spreadRadius: 3,
+                                    blurRadius: 8,
+                                    offset: const Offset(3, 5),
+                                  ),
+                                ],
+                                color: const Color(0xFF42A5F5),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.table_bar_outlined,
+                                    color: AppTheme.whiteColor,
+                                    size: 28,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    table.table_name, // Hiển thị tên bàn từ API
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
-                          );
-                        },
-                        child: Container(
-                          width: 90.0,
-                          height: 90.0,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
-                                spreadRadius: 3,
-                                blurRadius: 8,
-                                offset: const Offset(3, 5),
-                              ),
-                            ],
-                            color: Color(0xFF42A5F5),
-                            borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.table_bar_outlined,
-                                color: AppTheme.whiteColor,
-                                size: 28,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Table ${index + 1}',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          ),
-                        )),
-                  );
-                }),
+                        );
+                      }),
+                    );
+                  } else {
+                    // Hiển thị thông báo khi không có dữ liệu
+                    return Center(child: Text("No data available"));
+                  }
+                },
               ),
             ),
           ],

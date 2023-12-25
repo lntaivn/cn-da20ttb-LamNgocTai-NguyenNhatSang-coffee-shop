@@ -2,7 +2,7 @@ import 'package:app/theme.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  ProductCard({Key? key}) : super(key: key);
+  const ProductCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         width: MediaQuery.of(context).size.width / 2 - 24,
-        padding: EdgeInsets.all(4),
+        padding: const EdgeInsets.all(4),
         child: Stack(
           children: [
             Column(
@@ -63,8 +63,8 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     color: AppTheme.secondaryColor.withOpacity(.8),
                   ),
-                  child: Row(
-                    children: const [
+                  child: const Row(
+                    children: [
                       Icon(Icons.monetization_on_outlined, color: Colors.white),
                       Text(
                         '20.000',

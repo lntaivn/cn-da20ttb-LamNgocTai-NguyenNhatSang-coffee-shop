@@ -18,8 +18,8 @@ class Header extends StatelessWidget {
             backgroundImage: NetworkImage(
                 'https://images.unsplash.com/photo-1640915550677-26ade06905fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'),
           ),
-          Row(
-            children: const [
+          const Row(
+            children: [
               Icon(
                 Icons.location_on_sharp,
                 color: AppTheme.primaryColor,

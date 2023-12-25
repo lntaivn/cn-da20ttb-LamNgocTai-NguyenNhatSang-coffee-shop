@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
       // Chuyển sang màn hình thứ hai khi đăng nhập thành công
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => TableList()),
+        MaterialPageRoute(builder: (context) => const TableList()),
       );
     } else {
       // Hiển thị thông báo lỗi nếu đăng nhập không thành công
@@ -31,14 +31,15 @@ class _LoginState extends State<Login> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Đăng nhập không thành công'),
-            content: Text('Vui lòng kiểm tra lại tên người dùng và mật khẩu.'),
+            title: const Text('Đăng nhập không thành công'),
+            content:
+                const Text('Vui lòng kiểm tra lại tên người dùng và mật khẩu.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Đóng'),
+                child: const Text('Đóng'),
               ),
             ],
           );
@@ -52,8 +53,8 @@ class _LoginState extends State<Login> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-          constraints: BoxConstraints.expand(),
+          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+          constraints: const BoxConstraints.expand(),
           color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -64,13 +65,13 @@ class _LoginState extends State<Login> {
                 child: Container(
                     width: 70,
                     height: 70,
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(15),
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Color(0xffd8d8d8)),
-                    child: FlutterLogo()),
+                    child: const FlutterLogo()),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                 child: Text(
                   "Hello\nWelcome Back",
                   style: TextStyle(
@@ -82,9 +83,9 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                 child: TextField(
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: const TextStyle(fontSize: 18, color: Colors.black),
                   controller: _usernameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: "USERNAME",
                       labelStyle:
                           TextStyle(color: Color(0xff88888888), fontSize: 15)),
@@ -96,15 +97,15 @@ class _LoginState extends State<Login> {
                   alignment: AlignmentDirectional.centerEnd,
                   children: <Widget>[
                     TextField(
-                      style: TextStyle(fontSize: 18, color: Colors.black),
+                      style: const TextStyle(fontSize: 18, color: Colors.black),
                       obscureText: true,
                       controller: _passwordController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           labelText: "PASSWORD",
                           labelStyle: TextStyle(
                               color: Color(0xff88888888), fontSize: 15)),
                     ),
-                    Text(
+                    const Text(
                       "SHOW",
                       style: TextStyle(
                           color: Colors.blue,
@@ -121,7 +122,7 @@ class _LoginState extends State<Login> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: _login,
-                      child: Text(
+                      child: const Text(
                         "SIGN IN",
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
@@ -130,7 +131,7 @@ class _LoginState extends State<Login> {
               Container(
                 height: 130,
                 width: double.infinity,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(

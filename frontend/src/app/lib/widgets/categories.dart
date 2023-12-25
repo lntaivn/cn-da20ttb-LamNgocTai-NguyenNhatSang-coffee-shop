@@ -1,4 +1,4 @@
-import 'package:app/components/category_card.dart';
+import 'package:app/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {

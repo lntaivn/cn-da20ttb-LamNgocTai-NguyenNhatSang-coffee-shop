@@ -45,9 +45,9 @@ class OrderDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Order Details'),
+        title: const Text('Order Details'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Handle back action
           },
@@ -63,13 +63,13 @@ class OrderDetails extends StatelessWidget {
             case 0:
               // Nhấn Home
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
 
             case 1:
               // Nhấn Order
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
 
             case 2:
@@ -81,32 +81,32 @@ class OrderDetails extends StatelessWidget {
             case 3:
               // Nhấn Profile
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
           }
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: const Icon(
+            icon: Icon(
               Icons.table_restaurant_outlined,
               color: AppTheme.primaryColor,
             ),
             label: 'Table',
           ),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.checklist_rounded,
                 color: AppTheme.primaryColor,
               ),
               label: 'Order'),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.payment_rounded,
                 color: AppTheme.primaryColor,
               ),
               label: 'Payment'),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.person_2_outlined,
                 color: AppTheme.primaryColor,
               ),
@@ -117,14 +117,15 @@ class OrderDetails extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
               itemCount: cartItems.length,
               itemBuilder: (context, index) {
                 final item = cartItems[index];
                 return Card(
                     elevation:
                         4, // Adjust this value for desired shadow intensity
-                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           10), // Adjust the border radius for desired card shape
@@ -142,7 +143,7 @@ class OrderDetails extends StatelessWidget {
                           children: <Widget>[
                             // Minus button
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.remove,
                                 color: AppTheme.primaryColor,
                               ),
@@ -151,13 +152,13 @@ class OrderDetails extends StatelessWidget {
                               },
                             ),
                             // Quantity text
-                            Text(
+                            const Text(
                               '1', // Replace with the item quantity variable
                               textAlign: TextAlign.center,
                             ),
                             // Plus button
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.add,
                                 color: AppTheme.primaryColor,
                               ),
@@ -176,9 +177,9 @@ class OrderDetails extends StatelessWidget {
               },
             ),
           ),
-          Divider(),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
+          const Divider(),
+          const Padding(
+            padding: EdgeInsets.all(12.0),
             child: Column(
               children: [
                 Row(
@@ -220,7 +221,7 @@ class OrderDetails extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text('Continue To Payment'),
+              child: const Text('Continue To Payment'),
               onPressed: () {
                 // Handle payment action
               },

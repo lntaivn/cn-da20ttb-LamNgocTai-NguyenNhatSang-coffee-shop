@@ -1,5 +1,5 @@
-import 'package:app/components/categories.dart';
-import 'package:app/components/product_card.dart';
+import 'package:app/widgets/categories.dart';
+import 'package:app/widgets/product_card.dart';
 import 'package:app/screens/order_details.dart';
 import 'package:app/screens/table_list.dart';
 import 'package:app/theme.dart';
@@ -21,13 +21,13 @@ class ProductList extends StatelessWidget {
             case 0:
               // Nhấn Home
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
 
             case 1:
               // Nhấn Order
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
 
             case 2:
@@ -39,32 +39,32 @@ class ProductList extends StatelessWidget {
             case 3:
               // Nhấn Profile
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TableList()));
+                  MaterialPageRoute(builder: (context) => const TableList()));
               break;
           }
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: const Icon(
+            icon: Icon(
               Icons.table_restaurant_outlined,
               color: AppTheme.primaryColor,
             ),
             label: 'Table',
           ),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.checklist_rounded,
                 color: AppTheme.primaryColor,
               ),
               label: 'Order'),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.payment_rounded,
                 color: AppTheme.primaryColor,
               ),
               label: 'Payment'),
           BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.person_2_outlined,
                 color: AppTheme.primaryColor,
               ),
@@ -73,7 +73,7 @@ class ProductList extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
               child: Text(
                 'Coffee Shop',
@@ -83,7 +83,7 @@ class ProductList extends StatelessWidget {
                 ),
               )),
           const SearchBar(),
-          Row(
+          const Row(
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
@@ -100,9 +100,9 @@ class ProductList extends StatelessWidget {
           const Categories(),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10),
