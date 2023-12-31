@@ -1,6 +1,6 @@
 package com.lntai.coffee.entity;
 
-import com.lntai.coffee.auth.Permission;
+import com.lntai.coffee.common.Permission;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.lntai.coffee.auth.Permission.*;
+import static com.lntai.coffee.common.Permission.*;
 
 @RequiredArgsConstructor
 public enum Role {

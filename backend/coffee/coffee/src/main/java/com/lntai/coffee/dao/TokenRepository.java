@@ -1,6 +1,6 @@
 package com.lntai.coffee.dao;
 
-import com.lntai.coffee.token.Token;
+import com.lntai.coffee.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,4 +1,4 @@
-package com.lntai.coffee.auth;
+package com.lntai.coffee.common;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

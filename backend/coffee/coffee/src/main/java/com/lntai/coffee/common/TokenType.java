@@ -1,4 +1,4 @@
-package com.lntai.coffee.token;
+package com.lntai.coffee.common;
 
 public enum TokenType {
     BEARER

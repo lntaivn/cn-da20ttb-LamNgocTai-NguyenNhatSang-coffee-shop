@@ -1,14 +1,14 @@
 package com.lntai.coffee.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lntai.coffee.auth.AuthenticationRequest;
+import com.lntai.coffee.request.AuthenticationRequest;
 import com.lntai.coffee.request.RegisterRequest;
 import com.lntai.coffee.dao.AuthenticationResponse;
 import com.lntai.coffee.dao.EmployeeRepository;
 import com.lntai.coffee.entity.Employee;
-import com.lntai.coffee.token.Token;
+import com.lntai.coffee.entity.Token;
 import com.lntai.coffee.dao.TokenRepository;
-import com.lntai.coffee.token.TokenType;
+import com.lntai.coffee.common.TokenType;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

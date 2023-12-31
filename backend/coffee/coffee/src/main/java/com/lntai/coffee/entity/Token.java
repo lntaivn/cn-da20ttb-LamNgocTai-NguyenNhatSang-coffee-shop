@@ -1,5 +1,6 @@
-package com.lntai.coffee.token;
+package com.lntai.coffee.entity;
 
+import com.lntai.coffee.common.TokenType;
 import com.lntai.coffee.entity.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

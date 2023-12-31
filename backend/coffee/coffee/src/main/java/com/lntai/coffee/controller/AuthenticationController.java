@@ -1,6 +1,6 @@
 package com.lntai.coffee.controller;
 
-import com.lntai.coffee.auth.AuthenticationRequest;
+import com.lntai.coffee.request.AuthenticationRequest;
 import com.lntai.coffee.request.RegisterRequest;
 import com.lntai.coffee.dao.AuthenticationResponse;
 import com.lntai.coffee.service.AuthenticationService;
