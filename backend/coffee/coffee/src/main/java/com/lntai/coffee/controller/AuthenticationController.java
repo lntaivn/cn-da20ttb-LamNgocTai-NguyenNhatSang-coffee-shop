@@ -2,7 +2,7 @@ package com.lntai.coffee.controller;
 
 import com.lntai.coffee.request.AuthenticationRequest;
 import com.lntai.coffee.request.RegisterRequest;
-import com.lntai.coffee.dao.AuthenticationResponse;
+import com.lntai.coffee.auth.AuthenticationResponse;
 import com.lntai.coffee.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

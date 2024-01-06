@@ -7,7 +7,6 @@ public class OrderItemId implements Serializable {
     private int invoiceId;
     private int productId;
 
-    // Constructors, Getters, Setters, hashCode(), và equals()
 
     @Override
     public boolean equals(Object o) {

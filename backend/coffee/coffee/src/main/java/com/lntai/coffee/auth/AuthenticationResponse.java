@@ -1,4 +1,4 @@
-package com.lntai.coffee.dao;
+package com.lntai.coffee.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lntai.coffee.entity.Employee;

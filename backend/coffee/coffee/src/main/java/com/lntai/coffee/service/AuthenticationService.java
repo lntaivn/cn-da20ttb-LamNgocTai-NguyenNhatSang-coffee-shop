@@ -3,7 +3,7 @@ package com.lntai.coffee.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lntai.coffee.request.AuthenticationRequest;
 import com.lntai.coffee.request.RegisterRequest;
-import com.lntai.coffee.dao.AuthenticationResponse;
+import com.lntai.coffee.auth.AuthenticationResponse;
 import com.lntai.coffee.dao.EmployeeRepository;
 import com.lntai.coffee.entity.Employee;
 import com.lntai.coffee.entity.Token;
