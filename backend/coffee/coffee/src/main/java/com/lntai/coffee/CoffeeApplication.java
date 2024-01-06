@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import static com.lntai.coffee.entity.Role.ADMIN;
-import static com.lntai.coffee.entity.Role.MANAGER;
+import static com.lntai.coffee.entity.Role.USER;
 
 @SpringBootApplication
 public class CoffeeApplication {
@@ -25,20 +25,20 @@ public class CoffeeApplication {
 //			var admin = RegisterRequest.builder()
 //					.username("Admin")
 //					.address("Admin")
-//					.email("admin@mail.com")
+//					.email("admin@gmail.com")
 //					.password("password")
 //					.role(ADMIN)
 //					.build();
 //			System.out.println("Admin token: " + service.register(admin).getAccessToken());
 //
 //			var manager = RegisterRequest.builder()
-//					.username("manager")
-//					.address("manager")
-//					.email("manager@mail.com")
+//					.username("tai")
+//					.address("Trà Vinh")
+//					.email("tai@gmail.com")
 //					.password("password")
-//					.role(MANAGER)
+//					.role(USER)
 //					.build();
-//			System.out.println("Manager token: " + service.register(manager).getAccessToken());
+//			System.out.println("USER token: " + service.register(manager).getAccessToken());
 //
 //		};
 //	}

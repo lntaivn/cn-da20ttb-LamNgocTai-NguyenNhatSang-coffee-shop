@@ -10,7 +10,7 @@ import lombok.Data;
 public class TableOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "table_id")
+    @Column(name = "tableorder_id")
     private Integer tableId;
 
     @Column(name = "table_name")

@@ -7,19 +7,18 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "INVOICE") // Bọc tên bảng trong dấu nháy ngược
+@Table(name = "INVOICE")
 @Data
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private Integer orderId;
+    @Column(name = "invoice_id")
+    private Integer invoiceId;
 
     @ManyToOne
-    @JoinColumn(name = "table_id")
+    @JoinColumn(name = "tableorder_id")
     private TableOrder tableId;
 
-    private String status;
 
     @Column(name = "total_amount")
     private BigDecimal totalAmount;

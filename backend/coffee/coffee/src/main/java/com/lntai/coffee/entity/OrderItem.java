@@ -6,19 +6,16 @@ import lombok.Data;
 @Entity
 @Table(name = "\"ORDERITEM\"")
 @Data
+@IdClass(OrderItemId.class)
 public class OrderItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_item_id")
-    private int orderItemId;
+    @Column(name = "invoice_id")
+    private int invoiceId;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Invoice order;
+    @Id
+    @Column(name = "product_id")
+    private int productId;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-    private int quantity;
+    @Column(name = "count")
+    private int count;
 }

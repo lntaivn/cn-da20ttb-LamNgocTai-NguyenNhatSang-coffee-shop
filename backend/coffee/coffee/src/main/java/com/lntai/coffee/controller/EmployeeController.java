@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/api/v1/employees")
+@RequestMapping("/api/v1/change-password")
 @RequiredArgsConstructor
 public class EmployeeController {
 
