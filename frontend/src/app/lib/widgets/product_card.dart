@@ -1,8 +1,11 @@
+import 'package:app/models/product_model.dart';
 import 'package:app/theme.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key}) : super(key: key);
+  final ProductModels product;
+
+  const ProductCard({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +36,14 @@ class ProductCard extends StatelessWidget {
                   height: MediaQuery.of(context).size.width / 2 - 64,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://www.highlandscoffee.com.vn/vnt_upload/product/04_2023/New_product/HLC_New_logo_5.1_Products__LATTE_1.jpg'))),
+                          image: NetworkImage(product.image_url))),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 8.0, bottom: 4),
                   child: Text(
-                    'Cappaccino',
+                    product.name,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -63,11 +65,11 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     color: AppTheme.secondaryColor.withOpacity(.8),
                   ),
-                  child: const Row(
+                  child: Row(
                     children: [
                       Icon(Icons.monetization_on_outlined, color: Colors.white),
                       Text(
-                        '20.000',
+                        '${product.price}',
                         style: TextStyle(color: Colors.white),
                       )
                     ],

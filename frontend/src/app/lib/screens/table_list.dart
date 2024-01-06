@@ -1,7 +1,7 @@
 // import 'package:app/controllers/table_list_controller.dart';
 import 'package:app/controllers/table_list_controller.dart';
 import 'package:app/models/table_model.dart';
-import 'package:app/screens/order_details.dart';
+import 'package:app/screens/cart_page.dart';
 import 'package:app/screens/product_list.dart';
 import 'package:app/theme.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,7 @@ class _TableListState extends State<TableList> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           title: const Text('Table List'),
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -45,7 +46,7 @@ class _TableListState extends State<TableList> {
               case 2:
                 // Nhấn Payment
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OrderDetails()));
+                    MaterialPageRoute(builder: (context) => CartPage()));
                 break;
 
               case 3:

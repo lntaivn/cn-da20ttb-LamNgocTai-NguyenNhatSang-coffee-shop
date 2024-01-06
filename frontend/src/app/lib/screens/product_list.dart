@@ -1,12 +1,21 @@
+import 'package:app/controllers/product_controller.dart';
+import 'package:app/models/product_model.dart';
 import 'package:app/widgets/categories.dart';
 import 'package:app/widgets/product_card.dart';
-import 'package:app/screens/order_details.dart';
+import 'package:app/screens/cart_page.dart';
 import 'package:app/screens/table_list.dart';
 import 'package:app/theme.dart';
 import 'package:flutter/material.dart';
 
-class ProductList extends StatelessWidget {
+class ProductList extends StatefulWidget {
   const ProductList({super.key});
+
+  @override
+  State<ProductList> createState() => _ProductListState();
+}
+
+class _ProductListState extends State<ProductList> {
+  final ProductsController _productsController = ProductsController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +41,8 @@ class ProductList extends StatelessWidget {
 
             case 2:
               // Nhấn Payment
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => OrderDetails()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CartPage()));
               break;
 
             case 3:
@@ -101,13 +110,30 @@ class ProductList extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10),
-                itemCount: 6,
-                itemBuilder: (context, index) => ProductCard(),
+              child: FutureBuilder<List<ProductModels>>(
+                future: _productsController.getProducts(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return Center(child: Text('No products available.'));
+                  } else {
+                    return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) => ProductCard(
+                        product: snapshot.data![index],
+                      ),
+                    );
+                  }
+                },
               ),
             ),
           )
