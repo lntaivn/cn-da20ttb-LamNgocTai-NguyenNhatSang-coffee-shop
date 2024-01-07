@@ -19,7 +19,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
       """)
     List<Product> findByNameContaining(@Param("name") String name);
 
-    List<Product> findByCategory_Id(Integer categoryId); // Đây là cách đúng
+    List<Product> findByCategory_Id(Integer categoryId);
 
     Optional<Product> findByProductId(Integer id);
 

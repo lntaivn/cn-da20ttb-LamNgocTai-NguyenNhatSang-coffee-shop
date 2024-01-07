@@ -28,10 +28,8 @@ public class EmployeeService {
         if (!request.getNewPassword().equals(request.getConfirmationPassword())) {
             throw new EmployeeException("Mật khẩu không giống nhau");
         }
-
         // cap nhat
         user.setPassword(passwordEncoder.encode(request.getNewPassword()));
-
         // luu mat khau
         repository.save(user);
     }
