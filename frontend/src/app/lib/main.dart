@@ -1,4 +1,4 @@
-// import 'package:app/screens/login.dart';
+import 'package:app/screens/login.dart';
 import 'package:app/screens/table_list.dart';
 import 'package:flutter/material.dart';
 // import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: TableList(),
+      home: Login(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:app/animation/FadeAnimation.dart';
 import 'package:app/controllers/product_controller.dart';
 import 'package:app/models/product_model.dart';
+import 'package:app/screens/payment_success.dart';
 import 'package:app/screens/table_list.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -169,7 +170,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TableList()));
+                                builder: (context) => PaymentSuccess()));
                       },
                       height: 50,
                       elevation: 0,

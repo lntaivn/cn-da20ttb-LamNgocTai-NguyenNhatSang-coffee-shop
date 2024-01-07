@@ -72,10 +72,10 @@ class _TableListState extends State<TableList> {
                 label: 'Order'),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.payment_rounded,
+                  Icons.shopping_cart_outlined,
                   color: AppTheme.primaryColor,
                 ),
-                label: 'Payment'),
+                label: 'Cart'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person_2_outlined,

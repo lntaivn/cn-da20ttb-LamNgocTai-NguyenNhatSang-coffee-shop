@@ -68,10 +68,10 @@ class _ProductListState extends State<ProductList> {
               label: 'Order'),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.payment_rounded,
+                Icons.shopping_cart_outlined,
                 color: AppTheme.primaryColor,
               ),
-              label: 'Payment'),
+              label: 'Cart'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_2_outlined,
