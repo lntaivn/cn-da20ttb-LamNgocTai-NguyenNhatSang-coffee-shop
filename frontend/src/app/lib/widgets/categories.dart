@@ -22,7 +22,7 @@ class _CategoriesState extends State<Categories> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Hiển thị widget đang tải khi dữ liệu chưa sẵn sàng
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           // Hiển thị lỗi nếu có sự cố khi tải dữ liệu
           return Center(child: Text("Error: ${snapshot.error}"));
@@ -48,7 +48,7 @@ class _CategoriesState extends State<Categories> {
           );
         } else {
           // Hiển thị thông báo không có dữ liệu
-          return Center(child: Text("No categories found"));
+          return const Center(child: Text("No categories found"));
         }
       },
     );

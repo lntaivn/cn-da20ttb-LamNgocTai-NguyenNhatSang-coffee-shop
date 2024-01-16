@@ -15,7 +15,7 @@ class CategoriesModel {
         name: json["name"],
       );
     } else {
-      throw FormatException('Invalid type for category_id or name');
+      throw const FormatException('Invalid type for category_id or name');
     }
   }
 }

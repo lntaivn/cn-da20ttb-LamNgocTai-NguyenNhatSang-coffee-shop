@@ -46,7 +46,7 @@ class _TableListState extends State<TableList> {
               case 2:
                 // Nhấn Payment
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CartPage()));
+                    MaterialPageRoute(builder: (context) => const CartPage()));
                 break;
 
               case 3:
@@ -118,7 +118,7 @@ class _TableListState extends State<TableList> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     // Hiển thị bộ quay vòng khi đang tải dữ liệu
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     // Hiển thị thông báo lỗi nếu có
                     return Center(child: Text("Error: ${snapshot.error}"));
@@ -182,7 +182,7 @@ class _TableListState extends State<TableList> {
                     );
                   } else {
                     // Hiển thị thông báo khi không có dữ liệu
-                    return Center(child: Text("No data available"));
+                    return const Center(child: Text("No data available"));
                   }
                 },
               ),

@@ -2,7 +2,7 @@ import 'package:app/animation/FadeAnimation.dart';
 import 'package:app/controllers/product_controller.dart';
 import 'package:app/models/product_model.dart';
 import 'package:app/screens/payment_success.dart';
-import 'package:app/screens/table_list.dart';
+// import 'package:app/screens/table_list.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -64,13 +64,13 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          title: Text('Cart Page', style: TextStyle(color: Colors.black)),
+          title: const Text('Cart Page', style: TextStyle(color: Colors.black)),
         ),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: MediaQuery.of(context).size.height * 0.53,
                 child: cartItems.length > 0
                     ? FadeAnimation(
@@ -80,15 +80,15 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                             initialItemCount: cartItems.length,
                             itemBuilder: (context, index, animation) {
                               return Slidable(
-                                actionPane: SlidableDrawerActionPane(),
+                                actionPane: const SlidableDrawerActionPane(),
                                 secondaryActions: [
                                   MaterialButton(
                                     color: Colors.red.withOpacity(0.15),
                                     elevation: 0,
                                     height: 60,
                                     minWidth: 60,
-                                    shape: CircleBorder(),
-                                    child: Icon(
+                                    shape: const CircleBorder(),
+                                    child: const Icon(
                                       Icons.delete,
                                       color: Colors.red,
                                       size: 30,
@@ -120,17 +120,17 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       )
                     : Container(),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               FadeAnimation(
                 1.2,
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text('Items', style: TextStyle(fontSize: 20)),
+                      const Text('Items', style: TextStyle(fontSize: 20)),
                       Text('$totalItems',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold))
                     ],
                   ),
@@ -139,38 +139,38 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
               FadeAnimation(
                   1.3,
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: DottedBorder(
                         color: Colors.grey.shade400,
                         dashPattern: [10, 10],
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         child: Container()),
                   )),
               FadeAnimation(
                   1.3,
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text('Total', style: TextStyle(fontSize: 20)),
+                        const Text('Total', style: TextStyle(fontSize: 20)),
                         Text('\$${totalPrice}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold))
                       ],
                     ),
                   )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               FadeAnimation(
                   1.4,
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: MaterialButton(
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PaymentSuccess()));
+                                builder: (context) => const PaymentSuccess()));
                       },
                       height: 50,
                       elevation: 0,
@@ -178,7 +178,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       color: Colors.yellow[800],
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Checkout",
                           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -195,22 +195,22 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
         position: Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero)
             .animate(animation),
         child: Container(
-          margin: EdgeInsets.only(bottom: 20),
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade200,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
                 blurRadius: 6,
               ),
             ],
           ),
           child: Row(children: <Widget>[
             Container(
-              margin: EdgeInsets.only(right: 10),
+              margin: const EdgeInsets.only(right: 10),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
@@ -232,17 +232,17 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                         fontSize: 14,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
                       product.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Text(
                       '\$${product.price}',
                       style: TextStyle(
@@ -250,7 +250,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                         color: Colors.grey.shade800,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                   ]),
             ),
             Column(
@@ -258,7 +258,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
               children: [
                 MaterialButton(
                   minWidth: 10,
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   onPressed: () {
                     setState(() {
                       if (cartItemCount[index] > 1) {
@@ -267,7 +267,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       }
                     });
                   },
-                  shape: CircleBorder(),
+                  shape: const CircleBorder(),
                   child: Icon(
                     Icons.remove_circle_outline,
                     color: Colors.grey.shade400,
@@ -284,7 +284,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                   ),
                 ),
                 MaterialButton(
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   minWidth: 10,
                   splashColor: Colors.yellow[700],
                   onPressed: () {
@@ -293,8 +293,8 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       totalPrice = totalPrice + product.price;
                     });
                   },
-                  shape: CircleBorder(),
-                  child: Icon(
+                  shape: const CircleBorder(),
+                  child: const Icon(
                     Icons.add_circle,
                     size: 30,
                   ),

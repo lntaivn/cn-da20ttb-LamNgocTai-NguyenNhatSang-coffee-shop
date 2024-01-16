@@ -22,7 +22,7 @@ class ProductModels {
           image_url: json["image_url"],
           category_id: json["category_id"]);
     } else {
-      throw FormatException('Invalid type for table_id or table_name');
+      throw const FormatException('Invalid type for table_id or table_name');
     }
   }
 }

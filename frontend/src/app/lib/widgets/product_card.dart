@@ -41,10 +41,11 @@ class ProductCard extends StatelessWidget {
                           image: NetworkImage(product.image_url))),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 8.0, bottom: 4),
+                  padding: const EdgeInsets.only(left: 8.0, bottom: 4),
                   child: Text(
                     product.name,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -67,10 +68,11 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.monetization_on_outlined, color: Colors.white),
+                      const Icon(Icons.monetization_on_outlined,
+                          color: Colors.white),
                       Text(
                         '${product.price}',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       )
                     ],
                   ),

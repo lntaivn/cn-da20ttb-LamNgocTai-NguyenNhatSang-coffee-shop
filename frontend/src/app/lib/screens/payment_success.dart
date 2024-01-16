@@ -15,7 +15,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
-          padding: EdgeInsets.all(40.0),
+          padding: const EdgeInsets.all(40.0),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,17 +27,17 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                     'https://ouch-cdn2.icons8.com/7fkWk5J2YcodnqGn62xOYYfkl6qhmsCfT2033W-FjaA/rs:fit:784:784/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMjU5/LzRkM2MyNzJlLWFh/MmQtNDA3Ni04YzU0/LTY0YjNiMzQ4NzQw/OS5zdmc.png',
                     width: 250,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
-              FadeAnimation(
+              const FadeAnimation(
                   1.2,
                   Text(
                     'Payment Success! 🥳',
                     style:
                         TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               FadeAnimation(
@@ -48,15 +48,17 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                     style:
                         TextStyle(fontSize: 16.0, color: Colors.grey.shade700),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 140.0,
               ),
               FadeAnimation(
                 1.4,
                 MaterialButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => TableList()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TableList()));
                   },
                   height: 50,
                   elevation: 0,
@@ -64,7 +66,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   color: Colors.yellow[800],
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Back to Home",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -72,10 +74,10 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              FadeAnimation(
+              const FadeAnimation(
                   1.4,
                   Text(
                     'Thank you for shopping with us.',
