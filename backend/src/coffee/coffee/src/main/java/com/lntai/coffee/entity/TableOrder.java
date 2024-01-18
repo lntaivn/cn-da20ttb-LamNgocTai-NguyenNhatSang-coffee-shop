@@ -11,8 +11,15 @@ public class TableOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tableorder_id")
-    private Integer tableId;
+    private Integer tableOrderId;
 
     @Column(name = "table_name")
     private String tableName;
+
+    public TableOrder() {
+        // Constructor mặc định
+    }
+    public TableOrder(Integer tableOrderId) {
+        this.tableOrderId = tableOrderId;
+    }
 }

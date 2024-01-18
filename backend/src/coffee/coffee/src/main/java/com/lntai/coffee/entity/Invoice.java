@@ -3,6 +3,7 @@ package com.lntai.coffee.entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.math.BigDecimal;
 
@@ -15,9 +16,9 @@ public class Invoice {
     @Column(name = "invoice_id")
     private Integer invoiceId;
 
-    @ManyToOne
-    @JoinColumn(name = "tableorder_id")
-    private TableOrder tableId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tableorder_id", nullable = false)
+    private TableOrder tableOrderId;
 
 
     @Column(name = "total_amount")
@@ -26,7 +27,7 @@ public class Invoice {
     @Column(name = "payment_status")
     private String paymentStatus;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id", nullable = false)
     private Employee employeeId;
 }

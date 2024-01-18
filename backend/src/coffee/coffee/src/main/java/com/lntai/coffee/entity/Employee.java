@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "Employee")
@@ -81,5 +80,12 @@ public class Employee implements UserDetails {
 
     public enum Gender {
         MALE, FEMALE, OTHER
+    }
+
+    public Employee() {
+        // Constructor mặc định
+    }
+    public Employee(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 }
