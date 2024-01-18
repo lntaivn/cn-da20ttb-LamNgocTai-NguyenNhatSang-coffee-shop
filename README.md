@@ -5,13 +5,13 @@
 -   Dart SDK
 -   Một IDE (như Android Studio, VSCode, v.v.)
 
-### Cài đặt
+### Cài đặt ứng dụng
 **Clone Kho Repository**
-   Đầu tiên, clone kho repository
+- Đầu tiên, clone kho repository
 	 ``git clone``
-   Sau khi clone, điều hướng tới thư mục dự án
+- Sau khi clone, điều hướng tới thư mục dự án
     ``cd app``
-  Chạy lệnh sau trong thư mục dự án để cài đặt tất cả các dependencies cần thiết
+- Chạy lệnh sau trong thư mục dự án để cài đặt tất cả các dependencies cần thiết
    ``flutter pub get``
 
 **Cấu hình Firebase**
