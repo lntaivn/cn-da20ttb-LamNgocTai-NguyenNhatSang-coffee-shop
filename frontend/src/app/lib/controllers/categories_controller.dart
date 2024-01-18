@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class CategoriesController {
   Future<List<CategoriesModel>> getCategories() async {
     var url =
-        "https://my-json-server.typicode.com/nnsang1309/json-server/productcategory";
+        "https://my-json-server.typicode.com/nnsang1309/json-server/category";
 
     try {
       var response = await http.get(Uri.parse(url));

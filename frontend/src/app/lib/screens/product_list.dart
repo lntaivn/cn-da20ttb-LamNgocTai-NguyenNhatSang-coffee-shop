@@ -1,5 +1,6 @@
 import 'package:app/controllers/product_controller.dart';
 import 'package:app/models/product_model.dart';
+import 'package:app/widgets/botton_nav_bar.dart';
 import 'package:app/widgets/categories.dart';
 import 'package:app/widgets/product_card.dart';
 import 'package:app/screens/cart_page.dart';
@@ -20,66 +21,12 @@ class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppTheme.primaryColor,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        onTap: (int index) {
-          switch (index) {
-            case 0:
-              // Nhấn Home
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TableList()));
-              break;
-
-            case 1:
-              // Nhấn Order
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TableList()));
-              break;
-
-            case 2:
-              // Nhấn Payment
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => CartPage()));
-              break;
-
-            case 3:
-              // Nhấn Profile
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TableList()));
-              break;
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.table_restaurant_outlined,
-              color: AppTheme.primaryColor,
-            ),
-            label: 'Table',
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.checklist_rounded,
-                color: AppTheme.primaryColor,
-              ),
-              label: 'Order'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: AppTheme.primaryColor,
-              ),
-              label: 'Cart'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_2_outlined,
-                color: AppTheme.primaryColor,
-              ),
-              label: 'Profile'),
-        ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: const Text('', style: TextStyle(color: Colors.black)),
       ),
+      bottomNavigationBar: BottonNavBar(),
       body: Column(
         children: [
           const Padding(

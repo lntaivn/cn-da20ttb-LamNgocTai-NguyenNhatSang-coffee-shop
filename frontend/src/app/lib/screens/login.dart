@@ -1,32 +1,35 @@
-// import 'package:app/screens/product_list.dart';
 import 'package:app/screens/table_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  Login({super.key});
 
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  // Các controller dùng để lấy text từ TextField
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
-  void _login() {
-    // Thực hiện xác thực tại đây, ví dụ: kiểm tra tên người dùng và mật khẩu
-    String username = _usernameController.text;
-    String password = _passwordController.text;
+  // Instance của Firebase Auth
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
-    // Giả sử xác thực thành công nếu username và password không rỗng
-    if (username.isNotEmpty && password.isNotEmpty) {
-      // Chuyển sang màn hình thứ hai khi đăng nhập thành công
+  void _login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+      // Đăng nhập thành công, chuyển sang Table List
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const TableList()),
       );
-    } else {
-      // Hiển thị thông báo lỗi nếu đăng nhập không thành công
+    } on FirebaseAuthException catch (e) {
+      // Đăng nhập thất bại, hiển thị lỗi
       showDialog(
         context: context,
         builder: (context) {
@@ -84,7 +87,7 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                 child: TextField(
                   style: const TextStyle(fontSize: 18, color: Colors.black),
-                  controller: _usernameController,
+                  controller: emailController,
                   decoration: const InputDecoration(
                       labelText: "USERNAME",
                       labelStyle:
@@ -99,7 +102,7 @@ class _LoginState extends State<Login> {
                     TextField(
                       style: const TextStyle(fontSize: 18, color: Colors.black),
                       obscureText: true,
-                      controller: _passwordController,
+                      controller: passwordController,
                       decoration: const InputDecoration(
                           labelText: "PASSWORD",
                           labelStyle: TextStyle(
@@ -121,7 +124,11 @@ class _LoginState extends State<Login> {
                     width: double.infinity,
                     height: 56,
                     child: ElevatedButton(
-                      onPressed: _login,
+                      onPressed: () {
+                        _login(
+                            email: emailController.text,
+                            password: passwordController.text);
+                      },
                       child: const Text(
                         "SIGN IN",
                         style: TextStyle(color: Colors.white, fontSize: 16),

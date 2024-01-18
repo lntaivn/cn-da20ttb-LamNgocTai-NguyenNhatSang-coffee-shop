@@ -1,18 +1,18 @@
 class CategoriesModel {
-  int category_id;
-  String name;
+  int categoryId;
+  String categoryName;
 
   CategoriesModel({
-    required this.category_id,
-    required this.name,
+    required this.categoryId,
+    required this.categoryName,
   });
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) {
     // Đảm bảo rằng category_id là một số nguyên và name là một chuỗi.
-    if (json["category_id"] is int && json["name"] is String) {
+    if (json["categoryId"] is int && json["categoryName"] is String) {
       return CategoriesModel(
-        category_id: json["category_id"],
-        name: json["name"],
+        categoryId: json["categoryId"],
+        categoryName: json["categoryName"],
       );
     } else {
       throw const FormatException('Invalid type for category_id or name');

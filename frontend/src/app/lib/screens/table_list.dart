@@ -1,9 +1,9 @@
-// import 'package:app/controllers/table_list_controller.dart';
-import 'package:app/controllers/table_list_controller.dart';
+import 'package:app/controllers/invoice_controller.dart';
+import 'package:app/controllers/table_controller.dart';
 import 'package:app/models/table_model.dart';
-import 'package:app/screens/cart_page.dart';
 import 'package:app/screens/product_list.dart';
 import 'package:app/theme.dart';
+import 'package:app/widgets/botton_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class TableList extends StatefulWidget {
@@ -14,7 +14,39 @@ class TableList extends StatefulWidget {
 }
 
 class _TableListState extends State<TableList> {
-  final TableListController _controller = TableListController();
+  final TableController _controller = TableController();
+  final InvoiceController _invoiceController = InvoiceController();
+  int emptyTableCount = 0;
+  int invoiceCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadEmptyTableCount();
+    _loadInvoiceData();
+  }
+
+  void _loadEmptyTableCount() async {
+    try {
+      int emptyTableCount = await _controller.countTablesByStatus("Empty");
+      setState(() {
+        this.emptyTableCount = emptyTableCount;
+      });
+    } catch (e) {
+      // Xử lý lỗi
+    }
+  }
+
+  void _loadInvoiceData() async {
+    try {
+      int count = await _invoiceController.getInvoiceCount();
+      setState(() {
+        invoiceCount = count;
+      });
+    } catch (e) {
+      // Xử lý lỗi
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,69 +56,10 @@ class _TableListState extends State<TableList> {
           elevation: 0,
           title: const Text('Table List'),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppTheme.primaryColor,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          onTap: (int index) {
-            switch (index) {
-              case 0:
-                // Nhấn Table
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TableList()));
-                break;
-
-              case 1:
-                // Nhấn Order
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TableList()));
-                break;
-
-              case 2:
-                // Nhấn Payment
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const CartPage()));
-                break;
-
-              case 3:
-                // Nhấn Profile
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TableList()));
-                break;
-            }
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.table_restaurant_outlined,
-                color: AppTheme.primaryColor,
-              ),
-              label: 'Table',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.checklist_rounded,
-                  color: AppTheme.primaryColor,
-                ),
-                label: 'Order'),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_cart_outlined,
-                  color: AppTheme.primaryColor,
-                ),
-                label: 'Cart'),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person_2_outlined,
-                  color: AppTheme.primaryColor,
-                ),
-                label: 'Profile'),
-          ],
-        ),
+        bottomNavigationBar: BottonNavBar(),
         body: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(18.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,7 +67,7 @@ class _TableListState extends State<TableList> {
                   Column(
                     children: [
                       Text(
-                        'Order Number: 10',
+                        'Invoice: $invoiceCount',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
@@ -103,7 +76,7 @@ class _TableListState extends State<TableList> {
                   Column(
                     children: [
                       Text(
-                        'Empty Table: 00',
+                        'Empty: $emptyTableCount',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
@@ -131,6 +104,9 @@ class _TableListState extends State<TableList> {
                       children: List.generate(tables.length, (index) {
                         // Lấy thông tin của từng bàn
                         TableModel table = tables[index];
+                        Color tableColor = table.status == "Empty"
+                            ? Color(0xFF42A5F5)
+                            : Color.fromRGBO(255, 152, 67, 1);
                         return Center(
                           child: GestureDetector(
                             onTap: () {
@@ -154,7 +130,7 @@ class _TableListState extends State<TableList> {
                                     offset: const Offset(3, 5),
                                   ),
                                 ],
-                                color: const Color(0xFF42A5F5),
+                                color: tableColor,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Column(
@@ -167,7 +143,7 @@ class _TableListState extends State<TableList> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    table.table_name, // Hiển thị tên bàn từ API
+                                    table.tableName, // Hiển thị tên bàn từ API
                                     style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 16.0,

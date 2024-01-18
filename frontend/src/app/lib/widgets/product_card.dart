@@ -38,12 +38,12 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(product.image_url))),
+                          image: NetworkImage(product.imageUrl))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0, bottom: 4),
                   child: Text(
-                    product.name,
+                    product.productName,
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.bold),
                   ),

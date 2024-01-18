@@ -27,7 +27,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
       // Giả sử bạn muốn sản phẩm với ID 1, 2, 3, 4
       List<int> selectedProductIds = [1, 2, 3, 4];
       var selectedItems = items
-          .where((item) => selectedProductIds.contains(item.product_id))
+          .where((item) => selectedProductIds.contains(item.productId))
           .toList();
 
       setState(() {
@@ -214,7 +214,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  product.image_url,
+                  product.imageUrl,
                   fit: BoxFit.cover,
                   height: 100,
                   width: 100,
@@ -226,7 +226,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      product.name,
+                      product.productName,
                       style: TextStyle(
                         color: Colors.orange.shade400,
                         fontSize: 14,
@@ -236,7 +236,7 @@ class _CartPageState extends State<CartPage> with TickerProviderStateMixin {
                       height: 5,
                     ),
                     Text(
-                      product.name,
+                      product.productName,
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,

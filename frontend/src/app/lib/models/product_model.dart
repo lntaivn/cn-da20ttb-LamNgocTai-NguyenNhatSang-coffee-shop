@@ -1,28 +1,28 @@
 class ProductModels {
-  int product_id;
-  String name;
+  int productId;
+  String productName;
   int price;
-  String image_url;
-  int category_id;
+  String imageUrl;
+  int categoryId;
 
   ProductModels(
-      {required this.product_id,
-      required this.name,
+      {required this.productId,
+      required this.productName,
       required this.price,
-      required this.image_url,
-      required this.category_id});
+      required this.imageUrl,
+      required this.categoryId});
 
   factory ProductModels.fromJson(Map<String, dynamic> json) {
-    // Đảm bảo rằng product_id là một số nguyên và name là một chuỗi.
-    if (json["product_id"] is int && json["name"] is String) {
+    // Đảm bảo rằng productId là một số nguyên và productName là một chuỗi.
+    if (json["productId"] is int && json["productName"] is String) {
       return ProductModels(
-          product_id: json["product_id"],
-          name: json["name"],
+          productId: json["productId"],
+          productName: json["productName"],
           price: json["price"],
-          image_url: json["image_url"],
-          category_id: json["category_id"]);
+          imageUrl: json["imageUrl"],
+          categoryId: json["categoryId"]);
     } else {
-      throw const FormatException('Invalid type for table_id or table_name');
+      throw const FormatException('Invalid type for productId or productName');
     }
   }
 }

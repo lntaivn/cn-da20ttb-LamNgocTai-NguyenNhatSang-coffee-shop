@@ -39,7 +39,7 @@ class _CategoriesState extends State<Categories> {
                 return CategoryItem(
                   iconData:
                       'assets/coffee-cup-coffee-svgrepo-com.svg', // Giả sử mọi danh mục đều sử dụng icon này
-                  title: category.name, // Sử dụng tên danh mục từ API
+                  title: category.categoryName, // Sử dụng tên danh mục từ API
                   isSelected: index == 0, // Giả sử danh mục đầu tiên được chọn
                 );
               },
