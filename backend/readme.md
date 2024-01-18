@@ -48,7 +48,7 @@ Sau khi dự án khởi động, bạn có thể truy cập tài liệu API tự
 http://localhost:8080/swagger-ui.html
 ```
 ### Liên Hệ
-Người quản lý dự án: Lâm Ngọc Tài
-Email: lamngoctai2002@gmail.com
-Điện thoại: 0965577180
+1. Người quản lý dự án: Lâm Ngọc Tài
+2. Email: lamngoctai2002@gmail.com
+3. Điện thoại: 0965577180
 
