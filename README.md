@@ -15,11 +15,11 @@
    ``flutter pub get``
 
 **Cấu hình Firebase**
-    -   Cấu hình dự án Firebase của bạn và tải xuống `google-services.json` (cho Android) và `GoogleService-Info.plist` (cho iOS).
-    -   Đặt những tệp này vào các thư mục tương ứng (`android/app/` và `ios/Runner/`).
+- Cấu hình dự án Firebase của bạn và tải xuống `google-services.json` (cho Android) và `GoogleService-Info.plist` (cho iOS).
+- Đặt những tệp này vào các thư mục tương ứng (`android/app/` và `ios/Runner/`).
 
 **Chạy ứng dụng**
-  Thực hiện lệnh sau trong thư mục dự án
+- Thực hiện lệnh sau trong thư mục dự án
    ``flutter run``
 
 ### Thông Tin Liên Hệ
