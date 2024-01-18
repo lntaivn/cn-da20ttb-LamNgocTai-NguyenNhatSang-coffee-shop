@@ -1,19 +1,40 @@
-# FE flutter, BE java Spring Boot =>Android App Coffee shop
+# Nghiên cứu sử dụng RESTful API và Flutter để xây dựng ứng dụng di động quản lý quán Cafe
 
-## Development Setup
-Clone the repository and run the following commands:
-```
-flutter pub get
-flutter run
-```
+### Điều kiện tiên quyết
+
+-   Flutter SDK (Phiên bản: >=3.1.3 <4.0.0)
+-   Dart SDK
+-   Một IDE (như Android Studio, VSCode, v.v.)
+-   
+
+### Cài đặt
+**Clone Kho Repository**
+   
+   Đầu tiên, clone kho repository
+   ```bash
+   git clone
+
+   Sau khi clone, điều hướng tới thư mục dự án
+   ```bash
+   cd app
+
+  Chạy lệnh sau trong thư mục dự án để cài đặt tất cả các dependencies cần thiết
+   ```bash
+   flutter pub get
+
+**Cấu hình Firebase**
+    -   Cấu hình dự án Firebase của bạn và tải xuống `google-services.json` (cho Android) và `GoogleService-Info.plist` (cho iOS).
+    -   Đặt những tệp này vào các thư mục tương ứng (`android/app/` và `ios/Runner/`).
+
+**Chạy ứng dụng**
+  Thực hiện lệnh sau trong thư mục dự án
+   ```bash
+   flutter run
 
 # Thông Tin Liên Hệ
-
 ## Tên
 - Nguyễn Nhất Sang
-
 ## Email
 - nguyennhatsang2002@gmail.com
-
 ## Số Điện Thoại
 - 0383334954
