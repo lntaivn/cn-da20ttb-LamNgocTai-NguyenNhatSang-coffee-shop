@@ -16,7 +16,8 @@ public class Invoice {
     @Column(name = "invoice_id")
     private Integer invoiceId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @RestResource(exported = false)
     @JoinColumn(name = "tableorder_id", nullable = false)
     private TableOrder tableOrderId;
 
@@ -27,7 +28,8 @@ public class Invoice {
     @Column(name = "payment_status")
     private String paymentStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @RestResource(exported = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employeeId;
 }

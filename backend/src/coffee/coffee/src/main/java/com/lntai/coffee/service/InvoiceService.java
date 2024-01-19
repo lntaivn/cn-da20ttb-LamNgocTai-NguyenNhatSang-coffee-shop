@@ -3,6 +3,7 @@ package com.lntai.coffee.service;
 import com.lntai.coffee.dao.InvoiceRepository;
 import com.lntai.coffee.dao.TableOrderRepository;
 import com.lntai.coffee.dao.EmployeeRepository;
+import com.lntai.coffee.dto.InvoiceDTO;
 import com.lntai.coffee.entity.Invoice;
 import com.lntai.coffee.entity.TableOrder;
 import com.lntai.coffee.entity.Employee;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class InvoiceService {
@@ -49,5 +51,35 @@ public class InvoiceService {
 
         // Lưu hóa đơn đã cập nhật vào cơ sở dữ liệu
         invoiceRepository.save(existingInvoice);
+    }
+
+    public InvoiceDTO getInvoiceById(Integer invoiceId) {
+        Optional<Invoice> optionalInvoice = invoiceRepository.findById(invoiceId);
+        return optionalInvoice.map(this::mapToDTO).orElse(null);
+    }
+
+    public List<InvoiceDTO> getAllInvoices() {
+        List<Invoice> invoices = invoiceRepository.findAll();
+        return invoices.stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+    public void deleteInvoice(Integer invoiceId) {
+        // Kiểm tra xem hóa đơn có tồn tại không
+        Invoice existingInvoice = invoiceRepository.findById(invoiceId)
+                .orElseThrow(() -> new RuntimeException("Invoice not found with id: " + invoiceId));
+
+        // Xóa hóa đơn từ cơ sở dữ liệu
+        invoiceRepository.delete(existingInvoice);
+    }
+
+    private InvoiceDTO mapToDTO(Invoice invoice) {
+        InvoiceDTO invoiceDTO = new InvoiceDTO();
+        invoiceDTO.setInvoiceId(invoice.getInvoiceId());
+        invoiceDTO.setTableOrderId(invoice.getTableOrderId().getTableOrderId());
+        invoiceDTO.setTotalAmount(invoice.getTotalAmount());
+        invoiceDTO.setPaymentStatus(invoice.getPaymentStatus());
+        invoiceDTO.setEmployeeId(invoice.getEmployeeId().getEmployeeId());
+        // Thêm các trường khác cần thiết
+        return invoiceDTO;
     }
 }

@@ -17,7 +17,6 @@ public class TableOrder {
     private String tableName;
 
     public TableOrder() {
-        // Constructor mặc định
     }
     public TableOrder(Integer tableOrderId) {
         this.tableOrderId = tableOrderId;
