@@ -1,0 +1,9 @@
+tuần 1: Tạo cơ sở dữ liệu
+
+tuần 2: thêm dữ liệu
+
+tuần 3: Security - JWT
+
+tuần 4: phân quyền
+
+tuần 5: viết tài liệu, Openapi doc, change password
