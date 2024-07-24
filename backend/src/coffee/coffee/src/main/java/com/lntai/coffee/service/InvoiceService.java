@@ -79,7 +79,6 @@ public class InvoiceService {
         invoiceDTO.setTotalAmount(invoice.getTotalAmount());
         invoiceDTO.setPaymentStatus(invoice.getPaymentStatus());
         invoiceDTO.setEmployeeId(invoice.getEmployeeId().getEmployeeId());
-        // Thêm các trường khác cần thiết
         return invoiceDTO;
     }
 }

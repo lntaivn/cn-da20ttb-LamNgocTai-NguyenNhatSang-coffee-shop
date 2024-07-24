@@ -23,7 +23,7 @@ public class Product {
     @Column(name = "image_url", length = 255)  // VARCHAR(255) for image URL
     private String imageUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
 
